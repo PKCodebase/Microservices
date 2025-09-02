@@ -19,7 +19,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public String addCourse(Course course) {
         courseRepository.save(course);
-        return "Course Added Successfully : ";
+        return "Course Added Successfully  ";
     }
 
     @Override
