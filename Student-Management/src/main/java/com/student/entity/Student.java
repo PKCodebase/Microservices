@@ -22,14 +22,15 @@ public class Student {
 
     private String name;
 
-    private Long courseId;
+    private Long cId;
 
-    public Long getCourseId() {
-        return courseId;
+
+    public Long getcId() {
+        return cId;
     }
 
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
+    public void setcId(Long cId) {
+        this.cId = cId;
     }
 
     public String getName() {

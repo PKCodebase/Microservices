@@ -1,5 +1,6 @@
 package com.student.controller;
 
+import com.student.dto.CourseResponse;
 import com.student.entity.Student;
 import com.student.service.StudentService;
 import org.springframework.http.HttpStatus;
@@ -49,7 +50,12 @@ public class StudentController {
         }
     }
 
-    @DeleteMapping("/delete")
+    @GetMapping("/{courseId}/course")
+    public ResponseEntity<CourseResponse> getCourseForStudent(@PathVariable Long courseId) {
+        return ResponseEntity.ok(studentService.getCourseForStudent(courseId));
+    }
+
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id){
         try {
             return ResponseEntity.ok(studentService.deleteStudentById(id));
@@ -60,7 +66,7 @@ public class StudentController {
         }
     }
 
-    @PutMapping("/update/{iid}")
+    @PutMapping("/update/{id}")
     public  ResponseEntity<Object> updateStudent(@PathVariable Long id,@RequestBody Student student){
         try{
             return ResponseEntity.ok(studentService.updateStudentById(id,student));

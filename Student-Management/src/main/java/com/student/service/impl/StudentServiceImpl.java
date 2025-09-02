@@ -1,5 +1,7 @@
 package com.student.service.impl;
 
+import com.student.client.CourseClient;
+import com.student.dto.CourseResponse;
 import com.student.entity.Student;
 import com.student.repository.StudentRepository;
 import com.student.service.StudentService;
@@ -11,9 +13,11 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
 
     private final StudentRepository studentRepository;
+    private  final CourseClient courseClient;
 
-    public StudentServiceImpl(StudentRepository studentRepository) {
+    public StudentServiceImpl(StudentRepository studentRepository, CourseClient courseClient) {
         this.studentRepository = studentRepository;
+        this.courseClient = courseClient;
     }
 
     @Override
@@ -48,7 +52,12 @@ public class StudentServiceImpl implements StudentService {
                     return new RuntimeException("Student Not Found");
                 });
         existingStudent.setName(student.getName());
-        existingStudent.setCourseId(student.getCourseId());
+        existingStudent.setcId(student.getcId());
         return studentRepository.save(existingStudent);
     }
+    @Override
+    public CourseResponse getCourseForStudent(Long cId) {
+        return courseClient.getCourseById(cId);
+    }
+
 }

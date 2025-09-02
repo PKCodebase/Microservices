@@ -1,5 +1,6 @@
 package com.student.service;
 
+import com.student.dto.CourseResponse;
 import com.student.entity.Student;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface StudentService {
     Student getStudentById(Long id);
 
     Student updateStudentById(Long id , Student Student);
+
+    CourseResponse getCourseForStudent(Long cId);
 }
