@@ -13,4 +13,6 @@ public interface StudentService {
     String deleteStudentById(Long id);
 
     Student getStudentById(Long id);
+
+    Student updateStudentById(Long id , Student Student);
 }

@@ -37,8 +37,18 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudentById(Long id) {
-       Student student = studentRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("User not found"));
-        return student;
+        return studentRepository.findById(id)
+                 .orElseThrow(()-> new RuntimeException("User not found"));
+    }
+
+    @Override
+    public Student updateStudentById(Long id, Student student) {
+        Student existingStudent = studentRepository.findById(id)
+                .orElseThrow(()->{
+                    return new RuntimeException("Student Not Found");
+                });
+        existingStudent.setName(student.getName());
+        existingStudent.setCourseId(student.getCourseId());
+        return studentRepository.save(existingStudent);
     }
 }
