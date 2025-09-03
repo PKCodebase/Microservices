@@ -24,13 +24,12 @@ public class Student {
 
     private Long cId;
 
-
-    public Long getcId() {
-        return cId;
+    public Long getId() {
+        return id;
     }
 
-    public void setcId(Long cId) {
-        this.cId = cId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,5 +38,13 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getcId() {
+        return cId;
+    }
+
+    public void setcId(Long cId) {
+        this.cId = cId;
     }
 }

@@ -50,9 +50,9 @@ public class StudentController {
         }
     }
 
-    @GetMapping("/{courseId}/course")
-    public ResponseEntity<CourseResponse> getCourseForStudent(@PathVariable Long courseId) {
-        return ResponseEntity.ok(studentService.getCourseForStudent(courseId));
+    @GetMapping("/{cId}/course")
+    public ResponseEntity<CourseResponse> getCourseForStudent(@PathVariable Long cId) {
+        return ResponseEntity.ok(studentService.getCourseForStudent(cId));
     }
 
     @DeleteMapping("/delete/{id}")
